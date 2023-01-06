@@ -1,21 +1,21 @@
 <template>
-      <div class="block" data-tabs-target="clover">
+      <div class="block">
         <div class="loader" :class="{block: loaders}"></div>
-                <div class="block_clover-info"> 
+                <div class="block_row-info"> 
                     <img src="@/images/clover1.png" height="50px">
                      <div class="row">
                         <p>Название Sandbox</p>     
-                        <input v-model="sandboxName" type="text" class="sandbox_name input">
+                        <input v-model="sandboxName" type="text" class="input">
                      </div>  
                       
                      <div class="row">
                         <p>Verify key</p>
-                        <input v-model="verifyKey" type="text" class="clover_key input">
+                        <input v-model="verifyKey" type="text" class="input">
                      </div>
 
                      <div class="row">
                         <p>Приложение</p>
-                        <select v-model="selectInput" class="clover_select select">
+                        <select v-model="selectInput" class="select">
                                 <option></option>
                                 <option>EU</option>
                                 <option>DIRECT_EU</option>
@@ -26,9 +26,9 @@
                         </select>
                      </div>
                 </div>
-                <div class="block_clover-bottom">
-                    <button @click="cloverSettings" class="btn_clover btn">Настроить</button>
-                    <button @click="CloverGetKey" class="btn_getKey btn">Получить ключ</button>
+                <div class="block_row-bottom">
+                    <button @click="cloverSettings" class="btn">Настроить</button>
+                    <button @click="CloverGetKey" class="btn">Получить ключ</button>
                 </div>
                 <input type="text" class="clover_keyCopy input" style="opacity: 0;">   
             </div>

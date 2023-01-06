@@ -8,12 +8,12 @@
                         :key="list.id"
                         @click="switchLink(list.active, list.id)"
                         >{{list.itemlist}}
-                        </li>
+                    </li>
                 </nav>
             </div>
 
             <div class="right">
-              <div class="right_pos" v-if="this.menuList[0].active == false && this.menuList[1].active == false && this.menuList[2].active == false && this.menuList[3].active == false && this.menuList[4].active == false">
+              <div class="right_pos" v-if="this.menuList[0].active == false && this.menuList[1].active == false && this.menuList[2].active == false && this.menuList[3].active == false && this.menuList[4].active == false && this.menuList[5].active == false ">
                 <h1>Welcome to Sandbox, please choose the desired service from the list</h1>
               </div>
 
@@ -22,6 +22,8 @@
               <weebly-card :class="{block_active: this.menuList[2].active}"/>
               <imex-card :class="{block_active: this.menuList[3].active}"/>
               <square-card :class="{block_active: this.menuList[4].active}"/>
+              <lightspeed-pos :class="{block_active: this.menuList[5].active}"/>
+
             </div>
           
     </div>
@@ -34,12 +36,13 @@ import ImexCard from '@/components/imexCard'
 import SquareCard from '@/components/SquareCard'
 import WeeblyCard from '@/components/WeeblyCard'
 import VendCard from '@/components/VendCard'
+import lightspeedPos from '@/components/lightspeedPos'
 
 
 export default {
   name: 'App',
   components: {
-    CloverCard, ImexCard, SquareCard, WeeblyCard, VendCard
+    CloverCard, ImexCard, SquareCard, WeeblyCard, VendCard, lightspeedPos
   },
 
 
@@ -51,18 +54,24 @@ export default {
           {id:1, itemlist: 'Vend', active: false},
           {id:2, itemlist: 'Weebly',active: false},
           {id:3, itemlist: 'imex', active: false},
-          {id:4, itemlist: 'Square', active: false}
+          {id:4, itemlist: 'Square', active: false},
+          {id:5, itemlist: 'lspos', active: false},
         ],
       }
     }
   },
    methods: {
       switchLink(actived, id) {
-        this.menuList[0].active = false;
-        this.menuList[1].active = false;
-        this.menuList[2].active = false;
-        this.menuList[3].active = false;
-        this.menuList[4].active = false;
+
+        this.menuList.forEach(({id}) => {
+          this.menuList[id].active = false;
+        })
+        // this.menuList[0].active = false;
+        // this.menuList[1].active = false;
+        // this.menuList[2].active = false;
+        // this.menuList[3].active = false;
+        // this.menuList[4].active = false;
+        // this.menuList[5].active = false;
 
         if (actived == false) {
           this.menuList[id].active = true;
@@ -125,7 +134,7 @@ export default {
 
 /* Clover */
 
-.block_clover-info {
+.block_row-info {
   max-width: 500px;
   margin: 0 auto;
   padding-top: 50px;
@@ -142,7 +151,7 @@ export default {
   margin-top: 10px;
 }
 
-.block_clover-bottom {
+.block_row-bottom {
   margin-top: 10px;
   display: flex;
   align-items: center;

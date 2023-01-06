@@ -1,14 +1,14 @@
 <template>
-    <div class="block" data-tabs-target="imex">
-                <div class="block_clover-info"> 
+    <div class="block">
+                <div class="block_row-info"> 
                     <img src="@/images/imex.png" height="50px">
                     <div class="row">
                         <p>Название Sandbox</p>     
-                        <input type="text" class="sandbox_name--imex input">
+                        <input type="text" class="input">
                      </div>  
                 </div>
-                <div class="block_clover-bottom">
-                    <button class="btn_imex btn">Настроить</button>
+                <div class="block_row-bottom">
+                    <button class="btn">Настроить</button>
                 </div>    
             </div>
 </template>

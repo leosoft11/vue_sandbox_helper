@@ -1,31 +1,31 @@
 <template>
-    <div class="block" data-tabs-target="weebly">
+    <div class="block">
           <div class="loader" :class="{block: loaders}"></div>
-                <div class="block_clover-info"> 
+                <div class="block_row-info"> 
                     <img src="@/images/weebly.png" height="50px">
                      <div class="row">
                         <p>Название Sandbox</p>     
-                        <input v-model="sandbox_name_weebly" type="text" class="sandbox_name--weebly input">
+                        <input v-model="sandbox_name_weebly" type="text" class="input">
                      </div>  
                       
                      <div class="row">
                         <p>weebly.clientId</p>
-                        <input v-model="weeblyClientId" type="text" class="weebly_clientId input">
+                        <input v-model="weeblyClientId" type="text" class="input">
                      </div>
 
                      <div class="row">
                         <p>weebly.secretKey</p>
-                        <input v-model="weeblyClientSecret" type="text" class="weebly_secretKey input">
+                        <input v-model="weeblyClientSecret" type="text" class="input">
                      </div>
 
                      <div class="row">
                         <p>App version</p>
-                        <input v-model="weeblyAppId" type="text" class="weeblyAppID input" placeholder="1.0.10">
+                        <input v-model="weeblyAppId" type="text" class="input">
                      </div>
                 </div>
-                <div class="block_clover-bottom">
-                    <button @click="vendSettings" class="btn_weebly btn">Настроить</button>
-                    <button class="btn_weebly_app btn">Создать App</button>
+                <div class="block_row-bottom">
+                    <button @click="vendSettings" class="btn">Настроить</button>
+                    <button class="btn">Создать App</button>
                 </div>   
             </div>
 </template>

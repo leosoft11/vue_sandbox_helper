@@ -1,25 +1,25 @@
 <template>
-   <div class="block" data-tabs-target="vend">
+   <div class="block">
           <div class="loader" :class="{block: loaders}"></div>
-                <div class="block_clover-info"> 
+                <div class="block_row-info"> 
                     <img src="@/images/vend.png" height="50px">
                      <div class="row">
                         <p>Название Sandbox</p>     
-                        <input type="text" v-model="sandbox_name"  class="sandbox_name--vend input">
+                        <input type="text" v-model="sandbox_name" class="input">
                      </div>  
                       
                      <div class="row">
                         <p>vend.clientId</p>
-                        <input type="text" v-model="vend_clientId" class="vend_clientId input">
+                        <input type="text" v-model="vend_clientId" class="input">
                      </div>
 
                      <div class="row">
                         <p>vend.clientSecret</p>
-                        <input type="text" v-model="vend_clientSecret" class="vend_clientSecret input">
+                        <input type="text" v-model="vend_clientSecret" class="input">
                      </div>
                 </div>
-                <div class="block_clover-bottom">
-                    <button @click="VendState" class="btn_vend btn">Настроить</button>
+                <div class="block_row-bottom">
+                    <button @click="VendState" class="btn">Настроить</button>
                 </div>    
     </div>
 </template>
