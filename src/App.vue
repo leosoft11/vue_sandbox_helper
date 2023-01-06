@@ -29,11 +29,11 @@
 
 <script>
 
-import CloverCard from '@/components/CloverCard.vue'
-import ImexCard from '@/components/imexCard.vue'
-import SquareCard from '@/components/SquareCard.vue'
-import WeeblyCard from '@/components/WeeblyCard.vue'
-import VendCard from '@/components/VendCard.vue'
+import CloverCard from '@/components/CloverCard'
+import ImexCard from '@/components/imexCard'
+import SquareCard from '@/components/SquareCard'
+import WeeblyCard from '@/components/WeeblyCard'
+import VendCard from '@/components/VendCard'
 
 
 export default {
