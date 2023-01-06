@@ -1,5 +1,4 @@
 <template>
-  <div class="loader" :class="{block: loaders}"></div>
     <div class="main">
             <div class="left">
                 <nav class="link">
@@ -18,8 +17,8 @@
                 <h1>Welcome to Sandbox, please choose the desired service from the list</h1>
               </div>
 
-              <clover-card @CloverState="CloverState" :class="{block_active: this.menuList[0].active}"/>
-              <vend-card @VendState="VendState" :class="{block_active: this.menuList[1].active}"/>
+              <clover-card :class="{block_active: this.menuList[0].active}"/>
+              <vend-card  :class="{block_active: this.menuList[1].active}"/>
               <weebly-card :class="{block_active: this.menuList[2].active}"/>
               <imex-card :class="{block_active: this.menuList[3].active}"/>
               <square-card :class="{block_active: this.menuList[4].active}"/>
@@ -35,7 +34,7 @@ import ImexCard from '@/components/imexCard.vue'
 import SquareCard from '@/components/SquareCard.vue'
 import WeeblyCard from '@/components/WeeblyCard.vue'
 import VendCard from '@/components/VendCard.vue'
-import child from 'child_process';
+
 
 export default {
   name: 'App',
@@ -54,12 +53,10 @@ export default {
           {id:3, itemlist: 'imex', active: false},
           {id:4, itemlist: 'Square', active: false}
         ],
-        loaders: true
       }
     }
   },
    methods: {
-
       switchLink(actived, id) {
         this.menuList[0].active = false;
         this.menuList[1].active = false;
@@ -71,29 +68,6 @@ export default {
           this.menuList[id].active = true;
         }
       },
-
-      VendState(sandbox_name, vend_clientId, vend_clientSecret, info) {
-       if (sandbox_name && vend_clientId && vend_clientSecret) {
-            this.loaders = false;
-
-            const exec_proc = (coommand) => {
-                    const s_process = child.exec(coommand);
-                    s_process.stdout.on('close', (stdout,code) => {
-                        console.log(code);
-                        console.log(stdout);
-                        this.loaders = true;
-                        alert(info);
-                    })
-            }
-            exec_proc(`bash src/bash/vend.sh ${this.sandbox_name} ${this.vend_clientId} ${this.vend_clientSecret}`);
-        } else {
-            alert('Необходимо заполнить все поля')
-         }
-      },
-
-      CloverState(sandboxName, verifyKey, selectInput, cloverKeyCopy, info) {
-        console.log(sandboxName, verifyKey, selectInput, cloverKeyCopy);
-      }
     },
   }
 </script>
