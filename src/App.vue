@@ -66,7 +66,7 @@ export default {
         this.menuList.forEach(({id}) => {
           this.menuList[id].active = false;
         })
-        
+
         if (actived == false) {
           this.menuList[id].active = true;
         }
@@ -215,6 +215,10 @@ export default {
   top: 0;
   left: 0;
   opacity: 0.9;
+}
+
+.img_logo {
+   height: 50px;
 }
 
 </style>

@@ -2,7 +2,7 @@
      <div class="block">
             <div class="block_row-info">
               <div class="loader" :class="{block: loaders}"></div> 
-                    <img src="@/images/vend.png" height="50px">
+                    <img class="img_logo" src="@/images/lightspeednew.svg">
                      <div class="row">
                         <p>Название Sandbox</p>     
                         <input type="text" v-model="sandbox_name" class="input">
@@ -127,5 +127,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>

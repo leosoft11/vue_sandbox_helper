@@ -2,7 +2,7 @@
       <div class="block">
         <div class="loader" :class="{block: loaders}"></div>
                 <div class="block_row-info"> 
-                    <img src="@/images/clover1.png" height="50px">
+                    <img class="img_logo" src="@/images/clover.png" height="50px">
                      <div class="row">
                         <p>Название Sandbox</p>     
                         <input v-model="sandboxName" type="text" class="input">

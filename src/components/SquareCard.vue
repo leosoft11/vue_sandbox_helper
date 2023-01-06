@@ -1,7 +1,7 @@
 <template>
    <div class="block">
                 <div class="block_row-info"> 
-                    <img src="@/images/square.png" height="50px">
+                    <img class="img_logo" src="@/images/square.png">
                      <div class="row">
                         <p>Название Sandbox</p>     
                         <input type="text" class="input">

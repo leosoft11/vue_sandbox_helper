@@ -2,7 +2,7 @@
    <div class="block">
           <div class="loader" :class="{block: loaders}"></div>
                 <div class="block_row-info"> 
-                    <img src="@/images/vend.png" height="50px">
+                    <img class="img_logo" src="@/images/vend.png" height="50px">
                      <div class="row">
                         <p>Название Sandbox</p>     
                         <input type="text" v-model="sandbox_name" class="input">
@@ -65,5 +65,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>
