@@ -25,7 +25,7 @@
                 </div>
                 <div class="block_row-bottom">
                     <button @click="vendSettings" class="btn">Настроить</button>
-                    <button class="btn">Создать App</button>
+                    <button @click="vendOpenUrl" class="btn">Создать App</button>
                 </div>   
             </div>
 </template>
@@ -33,6 +33,7 @@
 <script>
 
 import child from 'child_process';
+import {shell} from 'electron';
 
 export default {
     data() {
@@ -47,26 +48,30 @@ export default {
     }, 
 
     methods: {
+
         vendSettings() {
             if(this.sandbox_name_weebly && this.weeblyClientId && this.weeblyClientSecret && this.weeblyAppId) {
-      
-            this.loaders = false;
-    
-            const exec_proc = (coommand) => {
-            const s_process = child.exec(coommand);
-                s_process.stdout.on('close', (code) => {
-                    console.log(code);
+        
+                this.loaders = false;
+        
+                const exec_proc = (coommand) => {
+                const s_process = child.exec(coommand);
+                    s_process.stdout.on('close', (code) => {
+                        console.log(code);
+                        this.loaders = true;
+                        alert(`${this.info}`);
+                    })
+            }
+            exec_proc(`bash src/bash/weebly.sh ${this.sandbox_name_weebly} ${this.weeblyClientId} ${this.weeblyClientSecret} ${this.weeblyAppId}`);
+                
 
-                    this.loaders = true;
-                    alert(`${this.info}`);
-                })
-         }
-        exec_proc(`bash src/bash/weebly.sh ${this.sandbox_name_weebly} ${this.weeblyClientId} ${this.weeblyClientSecret} ${this.weeblyAppId}`);
-            
+            } else {
+                alert('Необходимо заполнить все поля')
+            }
+        },
 
-        } else {
-            alert('Необходимо заполнить все поля')
-        }
+        vendOpenUrl() {
+            shell.openExternal("https://lamps.ecwid.com/~lukarek/php/");               
         }
     }
  
