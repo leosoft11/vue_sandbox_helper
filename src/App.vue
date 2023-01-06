@@ -66,13 +66,7 @@ export default {
         this.menuList.forEach(({id}) => {
           this.menuList[id].active = false;
         })
-        // this.menuList[0].active = false;
-        // this.menuList[1].active = false;
-        // this.menuList[2].active = false;
-        // this.menuList[3].active = false;
-        // this.menuList[4].active = false;
-        // this.menuList[5].active = false;
-
+        
         if (actived == false) {
           this.menuList[id].active = true;
         }
