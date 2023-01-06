@@ -1,24 +1,22 @@
-# electron-electron
+# Vue-Sandbox-Helper
 
-## Project setup
-```
-npm install
-```
+## Ленивая установка приложения
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+1. Склонировать репозиторий
+2. В папке с проектом, в терминале вызвать команду:
 
-### Compiles and minifies for production
 ```
-npm run build
+bash install.sh
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+3. Открыть приложение с помощью ярлыка RunApp.command
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Установка приложения другим способом
+
+1. Перейти в папку с проектом
+2. Выполнить команду `npm i` (если на компьютере не установлена `node`, необходимо установить `brew install node`, либо скачать с оффициального сайта - https://nodejs.org/en/)
+3. Используя терминал, в папке с проектом выполнить команду:
+
+```
+npm run electron:serve
+```
