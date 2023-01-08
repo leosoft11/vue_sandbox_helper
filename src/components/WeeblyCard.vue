@@ -34,8 +34,9 @@
 
 import child from 'child_process';
 import {shell} from 'electron';
+import path from 'path'
 
-const path_local_or_prod = process.env.NODE_ENV === 'production' ? 'testing' : 'src/bash';
+const path_local_or_prod = process.env.NODE_ENV === 'production' ? `${path.join(__dirname, '../../')}bash` : 'src/bash/';
 
 export default {
     data() {
