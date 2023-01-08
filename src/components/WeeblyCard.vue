@@ -56,7 +56,6 @@ export default {
             if(this.sandbox_name_weebly && this.weeblyClientId && this.weeblyClientSecret && this.weeblyAppId) {
         
                 this.loaders = false;
-        
                 const exec_proc = (coommand) => {
                 const s_process = child.exec(coommand);
                     s_process.stdout.on('close', (code) => {
@@ -65,12 +64,11 @@ export default {
                         alert(`${this.info}`);
                     })
             }
-            exec_proc(`bash ${path_local_or_prod}/weebly.sh ${this.sandbox_name_weebly} ${this.weeblyClientId} ${this.weeblyClientSecret} ${this.weeblyAppId}`);
-                
+              exec_proc(`bash ${path_local_or_prod}/weebly.sh ${this.sandbox_name_weebly} ${this.weeblyClientId} ${this.weeblyClientSecret} ${this.weeblyAppId}`);
 
             } else {
                 alert('Необходимо заполнить все поля')
-            }
+              }
         },
 
         vendOpenUrl() {

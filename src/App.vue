@@ -64,7 +64,6 @@ export default {
   },
    methods: {
       switchLink(actived, id) {
-
         this.menuList.forEach(({id}) => {
           this.menuList[id].active = false;
         })
@@ -182,7 +181,7 @@ export default {
 .input {
   height: 27px;
   width: 250px;
-  padding: 3px, 10px, 4px;
+  padding: 10px 3px, 10px, 4px;
   border-radius: 5px;
   font-size: 16px;
   line-height: 22px;
@@ -208,7 +207,7 @@ export default {
 }
 
 .loader {
-  background: #333 url(images/loading.gif) no-repeat center center;
+  background: #333 url("@/images/loading.gif") no-repeat center center;
   height: 100vh;
   width: 100%;
   position: fixed;

@@ -32,9 +32,7 @@ export default {
 
     methods: {
         imexSettings() {
-            
             if (this.sandboxName) {
-                
                 this.loaders = false;
                 const exec_proc = (coommand) => {
                     const s_process = child.exec(coommand);
@@ -44,11 +42,12 @@ export default {
                         alert(`${this.info}`);
                     })
                 }
-            exec_proc(`bash ${path_local_or_prod}/imex.sh ${this.sandboxName}`);
+
+              exec_proc(`bash ${path_local_or_prod}/imex.sh ${this.sandboxName}`);
+
             } else {
                 alert('Необходимо заполнить все поля')
-            }
-
+              }
         }
     }
 

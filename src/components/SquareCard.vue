@@ -70,22 +70,23 @@ export default {
 
     methods: {
         squareSettings() {
-        if (this.sandbox_name && this.app_id && this.app_secret && this.sandbox_app_id && this.sandbox_access_token && this.webhook_key && this.webhook_v2_key) {
+          if (this.sandbox_name && this.app_id && this.app_secret && this.sandbox_app_id && this.sandbox_access_token && this.webhook_key && this.webhook_v2_key) {
 
-            this.loaders = false;
-            const exec_proc = (coommand) => {
-                    const s_process = child.exec(coommand);
-                    s_process.stdout.on('close', (code) => {
-                        console.log(code);
-                        this.loaders = true;
-                        alert(`${this.info}`);
-                    })
-            }
-            exec_proc(`bash ${path_local_or_prod}/square.sh ${this.sandbox_name} ${this.app_id} ${this.app_secret} ${this.sandbox_app_id} ${this.sandbox_access_token} ${this.webhook_key} ${this.webhook_v2_key}`);
+              this.loaders = false;
+              const exec_proc = (coommand) => {
+                      const s_process = child.exec(coommand);
+                      s_process.stdout.on('close', (code) => {
+                          console.log(code);
+                          this.loaders = true;
+                          alert(`${this.info}`);
+                      })
+              }
 
-        } else{
-            alert('Необходимо заполнить все поля')
-            }
+              exec_proc(`bash ${path_local_or_prod}/square.sh ${this.sandbox_name} ${this.app_id} ${this.app_secret} ${this.sandbox_app_id} ${this.sandbox_access_token} ${this.webhook_key} ${this.webhook_v2_key}`);
+
+          } else{
+                alert('Необходимо заполнить все поля')
+              }
         }
     }
 

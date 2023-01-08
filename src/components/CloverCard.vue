@@ -2,7 +2,7 @@
       <div class="block">
         <div class="loader" :class="{block: loaders}"></div>
                 <div class="block_row-info"> 
-                    <img class="img_logo" src="@/images/clover.png" height="50px">
+                    <img class="img_logo" src="@/images/clover.png">
                      <div class="row">
                         <p>Название Sandbox</p>     
                         <input v-model="sandboxName" type="text" class="input">
@@ -100,9 +100,9 @@ export default {
 
                 exec_proc(`bash ${path_local_or_prod}/clover.sh ${this.sandbox_name} ${this.verifyKey} ${this.cloverSetApp}`);
 
-          } else {
-              alert("Необходимо заполнить все поля");
-          }
+            } else {
+                alert("Необходимо заполнить все поля");
+              }
         }
     },
 }

@@ -61,7 +61,7 @@ export default {
                     exec_proc(`bash ${path_local_or_prod}/vend.sh ${this.sandbox_name} ${this.vend_clientId} ${this.vend_clientSecret}`);
                 } else {
                     alert('Необходимо заполнить все поля')
-                }
+                  }
       },
     }, 
 
