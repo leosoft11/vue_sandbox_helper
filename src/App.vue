@@ -31,6 +31,8 @@
 
 <script>
 
+// TODO: 'Пофиксить проблему с загрузкой изображения'
+
 import CloverCard from '@/components/CloverCard'
 import ImexCard from '@/components/imexCard'
 import SquareCard from '@/components/SquareCard'
