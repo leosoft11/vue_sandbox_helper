@@ -3,7 +3,12 @@
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
+import fixPath from 'fix-path';
 const isDevelopment = process.env.NODE_ENV !== 'production'
+
+if (process.env.NODE_ENV === 'production') {
+  fixPath();
+}
 
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([

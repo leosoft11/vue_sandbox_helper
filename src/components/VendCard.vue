@@ -25,7 +25,10 @@
 </template>
 
 <script>
+
 import child from 'child_process';
+
+const path_local_or_prod = process.env.NODE_ENV === 'production' ? 'testing' : 'src/bash';
 
 export default {
 
@@ -54,7 +57,7 @@ export default {
                                 alert(this.info);
                             })
                     }
-                    exec_proc(`bash src/bash/vend.sh ${this.sandbox_name} ${this.vend_clientId} ${this.vend_clientSecret}`);
+                    exec_proc(`bash ${path_local_or_prod}/vend.sh ${this.sandbox_name} ${this.vend_clientId} ${this.vend_clientSecret}`);
                 } else {
                     alert('Необходимо заполнить все поля')
                 }

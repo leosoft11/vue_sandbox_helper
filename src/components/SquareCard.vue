@@ -50,6 +50,8 @@
 
 import child from 'child_process';
 
+const path_local_or_prod = process.env.NODE_ENV === 'production' ? 'testing' : 'src/bash';
+
 export default {
     data() {
         return {
@@ -78,7 +80,7 @@ export default {
                         alert(`${this.info}`);
                     })
             }
-            exec_proc(`bash src/bash/square.sh ${this.sandbox_name} ${this.app_id} ${this.app_secret} ${this.sandbox_app_id} ${this.sandbox_access_token} ${this.webhook_key} ${this.webhook_v2_key}`);
+            exec_proc(`bash ${path_local_or_prod}/square.sh ${this.sandbox_name} ${this.app_id} ${this.app_secret} ${this.sandbox_app_id} ${this.sandbox_access_token} ${this.webhook_key} ${this.webhook_v2_key}`);
 
         } else{
             alert('Необходимо заполнить все поля')

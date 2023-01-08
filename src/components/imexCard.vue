@@ -17,6 +17,8 @@
 
 import child from 'child_process';
 
+const path_local_or_prod = process.env.NODE_ENV === 'production' ? 'testing' : 'src/bash';
+
 export default {
 
     data() {
@@ -41,7 +43,7 @@ export default {
                         alert(`${this.info}`);
                     })
                 }
-            exec_proc(`bash src/bash/imex.sh ${this.sandboxName}`);
+            exec_proc(`bash ${path_local_or_prod}/imex.sh ${this.sandboxName}`);
             } else {
                 alert('Необходимо заполнить все поля')
             }

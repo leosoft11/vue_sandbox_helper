@@ -35,6 +35,8 @@
 import child from 'child_process';
 import {shell} from 'electron';
 
+const path_local_or_prod = process.env.NODE_ENV === 'production' ? 'testing' : 'src/bash';
+
 export default {
     data() {
         return {
@@ -62,7 +64,7 @@ export default {
                         alert(`${this.info}`);
                     })
             }
-            exec_proc(`bash src/bash/weebly.sh ${this.sandbox_name_weebly} ${this.weeblyClientId} ${this.weeblyClientSecret} ${this.weeblyAppId}`);
+            exec_proc(`bash ${path_local_or_prod}/weebly.sh ${this.sandbox_name_weebly} ${this.weeblyClientId} ${this.weeblyClientSecret} ${this.weeblyAppId}`);
                 
 
             } else {

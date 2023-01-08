@@ -38,6 +38,8 @@
 
 import child from 'child_process';
 
+const path_local_or_prod = process.env.NODE_ENV === 'production' ? 'testing' : 'src/bash';
+
 export default {
 
     data() {
@@ -56,7 +58,7 @@ export default {
             if (this.sandboxName) {
                 this.loaders = false;
                 const { exec } = require('child_process');
-                exec(`bash src/bash/cloverKey.sh ${this.sandboxName}`, (error, stdout, stderr) => {
+                exec(`bash ${path_local_or_prod}/cloverKey.sh ${this.sandboxName}`, (error, stdout, stderr) => {
                     if (error) {
                         this.loaders = true;
                         alert(`exec error: ${error}`);
@@ -95,13 +97,13 @@ export default {
                     })
                 }
 
-                exec_proc(`bash src/bash/clover.sh ${this.sandbox_name} ${this.verifyKey} ${this.cloverSetApp}`);
+                exec_proc(`bash ${path_local_or_prod}/clover.sh ${this.sandbox_name} ${this.verifyKey} ${this.cloverSetApp}`);
 
           } else {
               alert("Необходимо заполнить все поля");
           }
         }
-    }
+    },
 }
 </script>
 
