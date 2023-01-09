@@ -33,6 +33,8 @@
 
 // TODO: 'Пофиксить проблему с загрузкой изображения'
 
+// TODO: 'Починить проблему, когда выполняющий psql-sand запрос требует пароль для ключа'
+
 import CloverCard from '@/components/CloverCard'
 import ImexCard from '@/components/imexCard'
 import SquareCard from '@/components/SquareCard'
