@@ -39,7 +39,7 @@ export default {
                 exec(`bash ${path_local_or_prod}/imex.sh ${this.sandboxName}`,(error, stdout, stderr) => {
                   if (error) {
                     this.loaders = true;
-                    alert(`Произошла ошибка exec error: ${error}`);
+                    alert(`exec error: ${error}`);
                     return;
                   }
                   this.loaders = true;
