@@ -36,8 +36,9 @@
 
 <script>
 
-import child from 'child_process';
+// import exec from 'child_process'
 import path from 'path'
+import {exec} from 'child_process'
 
 const path_local_or_prod = process.env.NODE_ENV === 'production' ? `${path.join(__dirname, '../../')}bash` : 'src/bash/';
 
@@ -58,7 +59,6 @@ export default {
         CloverGetKey() {
             if (this.sandboxName) {
                 this.loaders = false;
-                const { exec } = require('child_process');
                 exec(`bash ${path_local_or_prod}/cloverKey.sh ${this.sandboxName}`, (error, stdout, stderr) => {
                     if (error) {
                         this.loaders = true;
@@ -87,18 +87,30 @@ export default {
         },
 
         cloverSettings() {
-            if (this.sandbox_name && this.verifyKey && this.cloverSetApp) {
+            if (this.sandbox_name && this.verifyKey && this.selectInput) {
                 this.loaders = false;
-                const exec_proc = (coommand) => {
-                const s_process = child.exec(coommand);
-                    s_process.stdout.on('close', (code) => {
-                        console.log(code);
-                        this.loaders = true;
-                        alert(`${this.info}`);
-                    })
-                }
-
-                exec_proc(`bash ${path_local_or_prod}/clover.sh ${this.sandbox_name} ${this.verifyKey} ${this.cloverSetApp}`);
+                   exec(`bash ${path_local_or_prod}/clover.sh ${this.sandbox_name} ${this.verifyKey} ${this.selectInput}`,(error, stdout, stderr) => {
+                     if (error) {
+                       this.loaders = true;
+                       alert(`exec error: ${error}`);
+                       return;
+                     }
+                     this.loaders = true;
+                     console.log(`Результат выполнения команды: ${stdout}`)
+                     if (stdout.length === 0) {
+                       alert(`${this.info}`);
+                     }
+                   })
+                // const exec_proc = (coommand) => {
+                // const s_process = child.exec(coommand);
+                //     s_process.stdout.on('close', (code) => {
+                //         console.log(code);
+                //         this.loaders = true;
+                //         alert(`${this.info}`);
+                //     })
+                // }
+                //
+                // exec_proc(`bash ${path_local_or_prod}/clover.sh ${this.sandbox_name} ${this.verifyKey} ${this.selectInput}`);
 
             } else {
                 alert("Необходимо заполнить все поля");
