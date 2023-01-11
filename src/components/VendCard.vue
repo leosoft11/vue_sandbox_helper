@@ -55,7 +55,7 @@ export default {
                                 console.log(code);
                                 console.log(stdout);
                                 this.loaders = true;
-                                alert(this.info);
+                                alert(this.info); //
                             })
                     }
                     exec_proc(`bash ${path_local_or_prod}/vend.sh ${this.sandbox_name} ${this.vend_clientId} ${this.vend_clientSecret}`);
