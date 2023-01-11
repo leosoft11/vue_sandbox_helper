@@ -80,7 +80,7 @@ export default {
           this.loaders = false;
 
           // Регаем магазин
-          exec(`curl -XPOST 'https://my${this.sandbox_name}.ecwid.qa/resellerapi/v1/register?register=y' --data 'email=lukarek@ecwid.com&password=123456&name=VSV8&key=lightspeed___key&plan=LIGHTSPEED_UNLIMITED&external_account_id=${this.lspos_account}'`, (error, stdout, stderr) => {
+          exec(`curl -XPOST 'https://my${this.sandbox_name}.ecwid.qa/resellerapi/v1/register?register=y' --data 'email=lukarek111@ecwid.com&password=123456&name=VSV8&key=lightspeed___key&plan=LIGHTSPEED_UNLIMITED&external_account_id=${this.lspos_account}'`, (error, stdout, stderr) => {
               if (error) {
                   this.loaders = true;
                   console.log(stderr);
@@ -89,7 +89,7 @@ export default {
               } else {
                   alert(`Результат выполнения регистрации магазина команды": ${stdout}`)
                   this.buildSSO();
-                  this.loaders = true;
+
                   // Нужны ли вебхуки ?
                   exec(`echo "update application set webhookurl = 'https://${this.sandbox_name}-lspos.ecwid.qa/webhooks/ecwid’ where namespace = 'ecwid-lightspeed-app';" | psql-sand ${this.sandbox_name} appmarket`, (error, stdout, stderr) => {
                     if (error) {
@@ -98,7 +98,8 @@ export default {
                           alert(`exec error: ${error}`);
                           return;
                     } else {
-                          alert(`Обновляем вебуки в базе данных, результат выполнения функции: ${stdout}`); 
+                          alert(`Обновляем вебуки в базе данных, результат выполнения функции: ${stdout}`);
+                          this.loaders = true;
                     }
                   })
               }
