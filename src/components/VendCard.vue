@@ -59,7 +59,7 @@ export default {
                       this.loaders = true;
                       console.log(`Результат выполнения команды: ${stdout}`)
                       if (stdout.length === 0) {
-                        alert(`${this.info}`);
+                        alert(`${this.info}`); //
                       }
                     })
                     // const exec_proc = (coommand) => {
