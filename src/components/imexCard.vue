@@ -43,9 +43,10 @@ export default {
                     return;
                   }
                   this.loaders = true;
-                  if (stdout.length === 0) {
-                    alert(`${this.info}`);
-                  }
+                  console.log(`${stdout}`)
+                  console.log(`${stderr}`)
+                  alert(`Результат выполнения команды: ${stdout}`);
+                  alert(`${this.info}`);
                 })
 
             } else {

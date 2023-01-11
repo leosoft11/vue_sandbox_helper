@@ -95,10 +95,10 @@ export default {
                        return;
                      }
                      this.loaders = true;
-                     console.log(`Результат выполнения команды: ${stdout}`)
-                     if (stdout.length === 0) {
-                       alert(`${this.info}`);
-                     }
+                     console.log(`${stdout}`)
+                     console.log(`${stderr}`)
+                     alert(`Результат выполнения команды: ${stdout}`);
+                     alert(`${this.info}`);
                    })
 
             } else {
