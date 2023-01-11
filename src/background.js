@@ -3,6 +3,7 @@
 import { app, protocol, BrowserWindow } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
+import path from 'path'
 import fixPath from 'fix-path';
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -17,9 +18,14 @@ protocol.registerSchemesAsPrivileged([
 
 async function createWindow() {
   // Create the browser window.
+  const iconPath = path.join(
+      app.isPackaged ? app.getAppPath() : process.cwd(),
+      'newicon.icns'
+  );
   const win = new BrowserWindow({
     width: 1100,
     height: 600,
+    icon: iconPath,
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
