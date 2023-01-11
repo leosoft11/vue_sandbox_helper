@@ -36,7 +36,6 @@
 
 <script>
 
-// import exec from 'child_process'
 import path from 'path'
 import {exec} from 'child_process'
 
@@ -101,16 +100,6 @@ export default {
                        alert(`${this.info}`);
                      }
                    })
-                // const exec_proc = (coommand) => {
-                // const s_process = child.exec(coommand);
-                //     s_process.stdout.on('close', (code) => {
-                //         console.log(code);
-                //         this.loaders = true;
-                //         alert(`${this.info}`);
-                //     })
-                // }
-                //
-                // exec_proc(`bash ${path_local_or_prod}/clover.sh ${this.sandbox_name} ${this.verifyKey} ${this.selectInput}`);
 
             } else {
                 alert("Необходимо заполнить все поля");

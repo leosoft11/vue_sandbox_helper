@@ -62,16 +62,7 @@ export default {
                         alert(`${this.info}`);
                       }
                     })
-                    // const exec_proc = (coommand) => {
-                    //         const s_process = child.exec(coommand);
-                    //         s_process.stdout.on('close', (stdout,code) => {
-                    //             console.log(code);
-                    //             console.log(stdout);
-                    //             this.loaders = true;
-                    //             alert(this.info);
-                    //         })
-                    // }
-                    // exec_proc(`bash ${path_local_or_prod}/vend.sh ${this.sandbox_name} ${this.vend_clientId} ${this.vend_clientSecret}`);
+
                 } else {
                     alert('Необходимо заполнить все поля')
                   }

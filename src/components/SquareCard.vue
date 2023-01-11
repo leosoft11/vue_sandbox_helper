@@ -48,7 +48,7 @@
 
 <script>
 
-import child from 'child_process';
+import {exec} from 'child_process'
 import path from 'path'
 
 const path_local_or_prod = process.env.NODE_ENV === 'production' ? `${path.join(__dirname, '../../')}bash` : 'src/bash/';
@@ -73,16 +73,19 @@ export default {
           if (this.sandbox_name && this.app_id && this.app_secret && this.sandbox_app_id && this.sandbox_access_token && this.webhook_key && this.webhook_v2_key) {
 
               this.loaders = false;
-              const exec_proc = (coommand) => {
-                      const s_process = child.exec(coommand);
-                      s_process.stdout.on('close', (code) => {
-                          console.log(code);
-                          this.loaders = true;
-                          alert(`${this.info}`);
-                      })
-              }
 
-              exec_proc(`bash ${path_local_or_prod}/square.sh ${this.sandbox_name} ${this.app_id} ${this.app_secret} ${this.sandbox_app_id} ${this.sandbox_access_token} ${this.webhook_key} ${this.webhook_v2_key}`);
+              exec(`bash ${path_local_or_prod}/square.sh ${this.sandbox_name} ${this.app_id} ${this.app_secret} ${this.sandbox_app_id} ${this.sandbox_access_token} ${this.webhook_key} ${this.webhook_v2_key}`,(error, stdout, stderr) => {
+                if (error) {
+                  this.loaders = true;
+                  alert(`exec error: ${error}`);
+                  return;
+                }
+                this.loaders = true;
+                console.log(`Результат выполнения команды: ${stdout}`)
+                if (stdout.length === 0) {
+                  alert(`${this.info}`);
+                }
+              })
 
           } else{
                 alert('Необходимо заполнить все поля')

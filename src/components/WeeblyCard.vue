@@ -32,7 +32,7 @@
 
 <script>
 
-import child from 'child_process';
+import {exec} from 'child_process'
 import {shell} from 'electron';
 import path from 'path'
 
@@ -56,15 +56,19 @@ export default {
             if(this.sandbox_name_weebly && this.weeblyClientId && this.weeblyClientSecret && this.weeblyAppId) {
         
                 this.loaders = false;
-                const exec_proc = (coommand) => {
-                const s_process = child.exec(coommand);
-                    s_process.stdout.on('close', (code) => {
-                        console.log(code);
-                        this.loaders = true;
-                        alert(`${this.info}`);
-                    })
-            }
-              exec_proc(`bash ${path_local_or_prod}/weebly.sh ${this.sandbox_name_weebly} ${this.weeblyClientId} ${this.weeblyClientSecret} ${this.weeblyAppId}`);
+
+                exec(`bash ${path_local_or_prod}/weebly.sh ${this.sandbox_name_weebly} ${this.weeblyClientId} ${this.weeblyClientSecret} ${this.weeblyAppId}`,(error, stdout, stderr) => {
+                  if (error) {
+                    this.loaders = true;
+                    alert(`exec error: ${error}`);
+                    return;
+                  }
+                  this.loaders = true;
+                  console.log(`Результат выполнения команды: ${stdout}`)
+                  if (stdout.length === 0) {
+                    alert(`${this.info}`);
+                  }
+                })
 
             } else {
                 alert('Необходимо заполнить все поля')

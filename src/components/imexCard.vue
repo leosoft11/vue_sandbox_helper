@@ -16,7 +16,6 @@
 
 <script>
 
-import child from 'child_process';
 import path from 'path'
 import {exec} from 'child_process'
 
@@ -48,16 +47,6 @@ export default {
                     alert(`${this.info}`);
                   }
                 })
-              //   const exec_proc = (coommand) => {
-              //       const s_process = child.exec(coommand);
-              //       s_process.stdout.on('close', (code) => {
-              //           console.log(code);
-              //           this.loaders = true;
-              //           alert(`${this.info}`);
-              //       })
-              //   }
-              //
-              // exec_proc(`bash ${path_local_or_prod}/imex.sh ${this.sandboxName}`);
 
             } else {
                 alert('Необходимо заполнить все поля')
