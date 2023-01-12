@@ -72,6 +72,8 @@ export default {
 
     methods: {
         squareSettings() {
+
+          // TODO 'Сделать так, чтобы при выборе аппа, заполнялись поля в импуты'
           if (this.sandbox_name && this.app_id && this.app_secret && this.sandbox_app_id && this.sandbox_access_token && this.webhook_key && this.webhook_v2_key) {
 
               this.loaders = false;
