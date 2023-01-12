@@ -1,6 +1,8 @@
 <template>
     <div class="block">
-          <div class="loader" :class="{block: loaders}"></div>
+              <div class="loader" :class="{block: loaders}">
+                <div class="loader_text">Please wait</div>
+              </div>
                 <div class="block_row-info"> 
                     <img class="img_logo" src="@/images/weebly.png" height="50px">
                      <div class="row">

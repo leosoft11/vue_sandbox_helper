@@ -220,6 +220,15 @@ export default {
   opacity: 0.9;
 }
 
+.loader_text {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 29px;
+}
+
 .img_logo {
    height: 50px;
 }
