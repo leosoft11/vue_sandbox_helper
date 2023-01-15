@@ -3,7 +3,11 @@ module.exports = defineConfig({
   transpileDependencies: true,
   pluginOptions: {
     electronBuilder: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      builderOptions:{
+        extraResources: [
+          {from:'src/bash',to:'../bash'}],
+      }
     }
   }
 })
