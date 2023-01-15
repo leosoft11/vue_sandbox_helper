@@ -7,6 +7,9 @@ module.exports = defineConfig({
       builderOptions:{
         extraResources: [
           {from:'src/bash',to:'../bash'}],
+        mac: {
+          icon: 'src/newicon.icns'
+        }
       }
     }
   }

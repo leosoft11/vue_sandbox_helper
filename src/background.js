@@ -18,14 +18,9 @@ protocol.registerSchemesAsPrivileged([
 
 async function createWindow() {
   // Create the browser window.
-  const iconPath = path.join(
-      app.isPackaged ? app.getAppPath() : process.cwd(),
-      'newicon.icns'
-  );
   const win = new BrowserWindow({
     width: 1100,
     height: 600,
-    icon: iconPath,
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
