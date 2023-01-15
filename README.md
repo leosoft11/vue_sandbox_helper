@@ -22,3 +22,8 @@ npm run electron:build
 ```
 npm run electron:serve
 ```
+
+
+## Фикс ошибки ENOENT
+
+https://cloud.tencent.com/developer/article/2168586
