@@ -7,6 +7,8 @@ import path from 'path'
 import fixPath from 'fix-path';
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
+// TODO 'Возможность обновлять приложение по воздуху'
+
 if (process.env.NODE_ENV === 'production') {
   fixPath();
 }
