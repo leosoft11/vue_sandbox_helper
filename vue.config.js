@@ -7,6 +7,13 @@ module.exports = defineConfig({
       builderOptions:{
         extraResources: [
           {from:'src/bash',to:'../bash'}],
+        publish: [
+          {
+            provider: 'github',
+            owner: 'leosoft11',
+            repo: 'vue_sandbox_helper',
+          }
+        ],
         mac: {
           icon: 'src/newicon.icns'
         }
