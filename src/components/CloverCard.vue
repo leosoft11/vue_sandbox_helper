@@ -88,9 +88,9 @@ export default {
         },
 
         cloverSettings() {
-            if (this.sandbox_name && this.verifyKey && this.selectInput) {
+            if (this.sandboxName && this.verifyKey && this.selectInput) {
                 this.loaders = false;
-                   exec(`bash ${path_local_or_prod}/clover.sh ${this.sandbox_name} ${this.verifyKey} ${this.selectInput}`,(error, stdout, stderr) => {
+                   exec(`bash ${path_local_or_prod}/clover.sh ${this.sandboxName} ${this.verifyKey} ${this.selectInput}`,(error, stdout, stderr) => {
                      if (error) {
                        this.loaders = true;
                        alert(`exec error: ${error}`);
