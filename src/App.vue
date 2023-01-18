@@ -32,8 +32,17 @@
 <script>
 
 
+// TODO: 'Магазин с настроенным страйпом'
+// TODO: 'Настройка lspayments'
+// TODO: 'Перекат ноды'
+// TODO: 'wix'
+
 
 // TODO: 'Починить проблему, когда выполняющий psql-sand запрос требует пароль для ключа'
+
+// TODO: 'Отображать попап и делать перевод по ссылке на скачивание приложения'
+
+// TODO: 'Перенести проект в gitlab'
 
 import CloverCard from '@/components/CloverCard'
 import ImexCard from '@/components/imexCard'
