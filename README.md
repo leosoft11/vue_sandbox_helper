@@ -1,8 +1,8 @@
 # Vue-Sandbox-Helper
 
 ## Приложение на Mac
-- [для Mac Intel](https://github.com/leosoft11/vue_sandbox_helper/releases/download/v0.1.10/sandboxhelper-0.1.10.dmg)
-- [для Mac M1 (ARM)](https://github.com/leosoft11/vue_sandbox_helper/releases/download/v0.1.10/sandboxhelper-0.1.10-arm64.dmg)
+- [для Mac Intel](https://github.com/leosoft11/vue_sandbox_helper/releases/download/v0.1.10/sandboxhelper-0.1.11.dmg)
+- [для Mac M1 (ARM)](https://github.com/leosoft11/vue_sandbox_helper/releases/download/v0.1.10/sandboxhelper-0.1.11-arm64.dmg)
 
 ## Установка зависимых окружений
 
