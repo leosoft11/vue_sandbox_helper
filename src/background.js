@@ -5,9 +5,18 @@ import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
 import path from 'path'
 import fixPath from 'fix-path';
+
+// import {autoUpdater} from "electron-updater"
+
+// const log = require('electron-log');
+// log.transports.file.resolvePath = () => path.join(__dirname, '../../logs/main.log');
+import {devtools} from "vue";
+import {info} from "electron-log";
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // TODO 'Возможность обновлять приложение по воздуху'
+
+// log.info("appVer" + app.getVersion());
 
 if (process.env.NODE_ENV === 'production') {
   fixPath();
@@ -71,11 +80,12 @@ app.on('ready', async () => {
     }
   }
   createWindow()
+  // autoUpdater.checkForUpdatesAndNotify()
 })
 
 // Exit cleanly on request from parent process in development mode.
 if (isDevelopment) {
-  if (process.platform === 'win32') {
+  if (process.platform === 'darwin') {
     process.on('message', (data) => {
       if (data === 'graceful-exit') {
         app.quit()
@@ -87,3 +97,25 @@ if (isDevelopment) {
     })
   }
 }
+
+// autoUpdater.on('checking-for-update', (info) => {
+//   log.info("checkingUpdate");
+// })
+// autoUpdater.on('update-available', (info) => {
+//   log.info("update available");
+// })
+// autoUpdater.on("update-not-available", (info) => {
+//   log.info("update not available")
+// });
+//
+// autoUpdater.on('error', (err) => {
+//   log.info(`Ошибка обновления ${err}`);
+// });
+//
+// autoUpdater.on('download-progress', (pre) => {
+//   log.info('\n\ndownload progress')
+//   log.info(pre)
+// })
+// autoUpdater.on('update-downloaded', (info) => {
+//   log.info(info);
+// })

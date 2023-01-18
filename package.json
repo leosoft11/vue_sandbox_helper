@@ -1,21 +1,23 @@
 {
   "name": "sandboxhelper",
-  "version": "0.1.0",
+  "version": "0.1.10",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build",
+    "electron:build": "vue-cli-service electron:build --arm64",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
-    "publish":"vue-cli-service electron:build -p always"
+    "publish": "vue-cli-service electron:build -p always --arm64"
   },
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.8.3",
     "electron-builder": "~22.14.13",
+    "electron-log": "^4.4.8",
+    "electron-updater": "^5.3.0",
     "fix-path": "^3.0.0",
     "vue": "^3.2.13"
   },
