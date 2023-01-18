@@ -6,11 +6,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build --arm64",
+    "electron:build": "vue-cli-service electron:build --arm64 --x64",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
-    "publish": "vue-cli-service electron:build -p always --arm64"
+    "publish": "vue-cli-service electron:build -p always --arm64 --x64"
   },
   "main": "background.js",
   "dependencies": {
