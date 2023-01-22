@@ -1,22 +1,18 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, shell, dialog } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS3_DEVTOOLS } from 'electron-devtools-installer'
 import path from 'path'
 import fixPath from 'fix-path';
+import {autoUpdater} from "electron-updater"
 
-// import {autoUpdater} from "electron-updater"
-
-// const log = require('electron-log');
-// log.transports.file.resolvePath = () => path.join(__dirname, '../../logs/main.log');
+const log = require('electron-log');
+log.transports.file.resolvePath = () => path.join(__dirname, '../../logs/main.log');
 import {devtools} from "vue";
 import {info} from "electron-log";
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
-// TODO 'Возможность обновлять приложение по воздуху'
-
-// log.info("appVer" + app.getVersion());
 
 if (process.env.NODE_ENV === 'production') {
   fixPath();
@@ -33,7 +29,7 @@ async function createWindow() {
     width: 1100,
     height: 600,
     webPreferences: {
-      
+
       // Use pluginOptions.nodeIntegration, leave this alone
       // See nklayman.github.io/vue-cli-plugin-electron-builder/guide/security.html#node-integration for more info
       nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
@@ -80,7 +76,10 @@ app.on('ready', async () => {
     }
   }
   createWindow()
-  // autoUpdater.checkForUpdatesAndNotify()
+
+  setTimeout(() => {
+    autoUpdater.checkForUpdatesAndNotify()
+  },10000)
 })
 
 // Exit cleanly on request from parent process in development mode.
@@ -98,12 +97,27 @@ if (isDevelopment) {
   }
 }
 
-// autoUpdater.on('checking-for-update', (info) => {
-//   log.info("checkingUpdate");
-// })
-// autoUpdater.on('update-available', (info) => {
-//   log.info("update available");
-// })
+autoUpdater.on('checking-for-update', (info) => {
+  log.info("checkingUpdate");
+})
+autoUpdater.on('update-available', ({tag, version}) => {
+  log.info("update available");
+  const dialogOpts = {
+    type: 'info',
+    buttons: ['Download New Update'],
+    title: 'Application Update',
+    message: 'Появилось новое обновление',
+    detail:
+        'Скачайте новое приложение и замените текущее, после замены приложения не забудьте выполнить в терминате команду: xattr -cr /Applications/sandboxhelper.app',
+  }
+
+  dialog.showMessageBox(dialogOpts).then((returnValue) => {
+    if (returnValue.response === 0) process.arch === 'x64' ? shell.openExternal(`https:/github.com/leosoft11/vue_sandbox_helper/releases/download/${tag}/sandboxhelper-${version}.dmg`) : shell.openExternal(`https:/github.com/leosoft11/vue_sandbox_helper/releases/download/${tag}/sandboxhelper-${version}-arm64.dmg`);
+  })
+})
+
+
+// Методы для нормального обновление, но так как для нормального обновления необходима подпись приложения от Apple, просто оставлю это тут, сверху сделал костыль
 // autoUpdater.on("update-not-available", (info) => {
 //   log.info("update not available")
 // });
