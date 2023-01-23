@@ -75,8 +75,7 @@ export default {
                         // Получаем последний найденный ключ 
                         let lastEl = Key.slice(-1)[0];
                         this.cloverKeyCopy = lastEl;
-                        this.cloverKeyCopy.select();
-                        document.execCommand("copy");
+                        navigator.clipboard.writeText(this.cloverKeyCopy);
                         console.log(stderr);
                         alert(`Ваш Ключ: ${lastEl} Сохранен в буфер обмена`);
                     }
