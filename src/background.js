@@ -104,7 +104,7 @@ autoUpdater.on('update-available', ({tag, version}) => {
   log.info("update available");
   const dialogOpts = {
     type: 'info',
-    buttons: ['Download New Update'],
+    buttons: ['Download New Update', 'Cancel'],
     title: 'Application Update',
     message: 'Появилось новое обновление',
     detail:
